@@ -1,0 +1,86 @@
+\documentclass[mathserif,14pt]{beamer}
+\usetheme{default}
+
+%--------------- Settings ---------------%
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{epsfig,graphicx,subfig}
+\usepackage[round]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+
+%% Beamer specific customizations
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\setbeamertemplate{itemize items}[circle]
+\useinnertheme{default}
+\usefonttheme{serif}
+\usepackage{palatino}
+
+\setbeamerfont{title like}{shape=\scshape}
+\setbeamerfont{frametitle}{shape=\scshape}
+
+%\setbeamercolor*{lower separation line head}{bg=DeepSkyBlue4}
+%\setbeamercolor*{normal text}{fg=black,bg=blue!5}
+\setbeamercolor{alerted text}{fg=orange}
+\setbeamercolor*{example text}{fg=black}
+\setbeamercolor*{structure}{fg=blue}
+\setbeamercolor*{block title}{fg=white,bg=blue}
+\setbeamercolor*{block body}{fg=black, bg=blue!20}
+%\setbeamercolor*{palette tertiary}{fg=black,bg=black!10}
+%\setbeamercolor*{palette quaternary}{fg=black,bg=black!10}
+
+% Page numbers on bottom right
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[.96\paperwidth]{\hspace*{-1cm}\hfill\makebox[10pt]{{\color{gray}\scriptsize\insertframenumber}}}\hspace*{100mm}}}
+\newcommand\unnumbered{\setbeamertemplate{footline}{}\addtocounter{framenumber}{-1}}
+
+% Table reveal
+\newcommand{\aheader}[2]{\action<#1-|alert@#1>{#2}}
+% first argument: slide number to appear from, second argument: content of header 
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+% first argument: slide number to appear from, second argument: content of cell
+
+%\setbeameroption{show notes}
+
+
+\DeclareMathOperator*{\plim}{plim} 
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+
+%% LaTeX commands
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand*{\e}{\ensuremath{\varepsilon}}
+\renewcommand*{\phi}{\ensuremath{\varphi}}
+\newcommand*{\F}{\ensuremath{\mathcal{F}}}
+\newcommand*{\R}{\ensuremath{\mathbb{R}}}
+\newcommand*{\mat}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand*{\union}{\ensuremath{\cup}}
+\newcommand*{\intersection}{\ensuremath{\cap}}
+\newcommand{\sym}[1]{\rlap{#1}}
+
+\begin{document}
+
+%--------------- Title Page ---------------%
+\author{Jeffrey Shrader}
+\institute{Department of Economics, UC San Diego}
+\thanks{\tiny This material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant No. DGE-1144086. Any opinion, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.}
+\date{\today}
+
+
+\title{Student sleep}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%--------------- Body of document --------------%
+\begin{frame}
+
+\end{frame}
+
+%\newpage 
+%\clearpage
+\bibliography{/Users/jgs/google_drive/research/papers/library}
+\bibliographystyle{chicago}
+
+\end{document}

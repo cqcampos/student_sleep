@@ -1,0 +1,115 @@
+\documentclass[letterpaper,12pt]{article}
+
+%--------------- Settings ---------------%
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{epsfig,graphicx,booktabs}
+\usepackage{lscape}
+\usepackage{url,color,hyperref}
+\usepackage{setspace,fancyhdr}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{authblk}
+\usepackage[round]{natbib}
+\usepackage{titling}
+\usepackage[compact]{titlesec}
+
+%% Setting hyperlink colors
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%% Setting text spacing and margins
+\setlength{\topmargin}{0in}
+\setlength{\oddsidemargin}{0in} \setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in} \setlength{\textheight}{8.5in}
+\setlength{\headheight}{16pt} \setlength{\headsep}{0.2in}
+\setlength{\parindent}{0.0in} \setlength{\parskip}{0.09in}
+
+%% Commands to set title spacing. For something like a referee
+% report, uncomment all comamnds to have everything single spaced
+%\setlength{\droptitle}{-120pt}
+\posttitle{\par\end{center} \vspace{-10pt}}
+\postauthor{\end{tabular}\par\end{center} \vspace{-10pt}}
+%\postdate{\par\end{center} \vspace{-5pt}}
+\renewcommand{\baselinestretch}{1.2}
+
+%% Section commands, reduce text size and numbering
+%\renewcommand{\thesection}{\normalsize\arabic{section}}
+\titleformat*{\section}{\large\bf}
+\titleformat*{\subsection}{\normalsize\bf}
+\titleformat*{\subsubsection}{\normalsize\bf}
+%\titlespacing{\section}{0.05pt}{*0}{*0}
+%\titlespacing{\subsection}{0.05pt}{*0}{*0}
+%\titlespacing{\subsubsection}{0.05pt}{*0}{*0}
+
+
+%% Theorems
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+%% Own math commands and variables
+\DeclareMathOperator*{\plim}{plim} 
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+\newcommand*{\e}{\ensuremath{\varepsilon}}
+\renewcommand*{\phi}{\ensuremath{\varphi}}
+\newcommand*{\F}{\ensuremath{\mathcal{F}}}
+\newcommand*{\R}{\ensuremath{\mathbb{R}}}
+\newcommand*{\Var}[1]{\ensuremath{\text{Var}}}
+\newcommand*{\Exp}[1]{\ensuremath{\text{E}}}
+
+\newcommand*{\mat}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand*{\union}{\ensuremath{\cup}}
+\newcommand*{\intersection}{\ensuremath{\cap}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+% For including files from esttab
+\newcommand{\sym}[1]{\rlap{#1}\text{ }}
+
+\begin{document}
+
+%--------------- Title Page ---------------%
+\author{
+Jeffrey Shrader\thanks{Email: jgshrade@ucsd.edu; Department of Economics, University of California, San Diego, 9500 Gilman Drive, San Diego, CA 92093 \\ This material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant No. DGE-1144086. Any opinion, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.}
+}
+\title{Student sleep}
+\date{\normalsize \today}
+
+% If you want to make a compact, no title page doc, uncomment these
+%\pagestyle{fancy}
+%\fancyhf{}
+ 
+%\rhead{Jeffrey Shrader}
+%\lhead{\today}
+%\chead{\textbf{l}}
+%\rfoot{\thepage}
+
+% If you want to make an academic article, uncomment this command
+\maketitle
+
+
+%--------------- Body of document --------------%
+
+
+\newpage 
+\clearpage
+\bibliography{/Users/jgs/google_drive/research/papers/library}
+\bibliographystyle{chicago}
+
+\end{document}
+
+% Common regex commands (M^x replace-regexp)
+% \(.\)  \\mat{\1}
+
+
+
+
