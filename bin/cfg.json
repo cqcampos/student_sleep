@@ -1,0 +1,61 @@
+{
+  "act_metr": 0, 
+  "cookie_filename": "basis_retr.cookie", 
+  "csv_activity_colnames": [
+    "start_dt", 
+    "end_dt", 
+    "type", 
+    "calories", 
+    "actual_seconds", 
+    "steps"
+  ], 
+  "csv_activity_type_colnames": [
+    "act_type", 
+    "sleep_type", 
+    "toss_turn"
+  ], 
+  "csv_lineterminator": "\n", 
+  "csv_metrics_colnames": [
+    "datetime", 
+    "skin_temp", 
+    "air_temp", 
+    "heartrate", 
+    "steps", 
+    "gsr", 
+    "calories"
+  ], 
+  "csv_sleep_colnames": [
+    "start_dt", 
+    "end_dt", 
+    "calories", 
+    "actual_seconds", 
+    "heart_rate", 
+    "rem_minutes", 
+    "light_minutes", 
+    "deep_minutes", 
+    "quality", 
+    "toss_and_turn", 
+    "unknown_minutes", 
+    "interruption_minutes"
+  ], 
+  "csv_sleep_evt_colnames": [
+    "start_tstamp", 
+    "end_tstamp", 
+    "start_dt", 
+    "end_dt", 
+    "duration", 
+    "type"
+  ], 
+  "enc_passwd": "", 
+  "json_csv": "csv", 
+  "jsondir": "json", 
+  "loginid": "ucsdsleepstudy+3@gmail.com", 
+  "month": "2", 
+  "nocache_days": 1.5, 
+  "save_pwd": 0, 
+  "savedir": "/Users/jgs/google_drive/research/projects/active/student_sleep/data/raw", 
+  "session_token": "a4d4fa48f5006ec62e41a1187f02eaaa", 
+  "type": "ds", 
+  "userid": "", 
+  "year": "2014"
+}
