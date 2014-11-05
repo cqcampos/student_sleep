@@ -17,12 +17,22 @@ import csv
 import os
 import shutil
 
+#This will contain updated spreadsheet
+updated_list = []
+
+
 # A little helper function for skipping last line of csv
 def skip_last(iterator):
     prev = next(iterator)
     for item in iterator:
         yield prev
         prev = item
+
+# Function that will determine if file is non-zero. Empty files are 55 bytes
+def is_nonzero(filepath):
+    return True if os.path.isfile(filepath) and os.path.getsize(filepath) > 55 else False
+
+
 
 # Preliminary data and path setting
 today = datetime.now()
@@ -33,29 +43,47 @@ inv_dir = os.path.join(dir, '../data/Basis Inventory - Distribution.csv')
 #inv_dir = os.path.join(dir, '../data/Basis Inventory - Grad Short.csv')
 with open(inv_dir, 'rb') as csvfile:
     inventory = csv.reader(csvfile)
-    # Skip first two rows. First row is random password generator and second
-    # row is variable headers
-    next(inventory)
-    next(inventory)
+   
+    # Adds first two rows of original spreadsheet to updated list
+    first_row = inventory.next()
+    updated_list.append(first_row)
+    second_row = inventory.next()
+    updated_list.append(second_row)
+    
     # Loop over rest of rows until you reach a blank user name
     for row in skip_last(inventory):
         if row[3] == '':
             next(inventory)
-        u = row[7]
+        u = row[8] # I modified this to work with my updated spreadsheet
         # UID is the number assigned to each user, part of their user name
         uid = row[1] # u.split("@")[0].split("+")[1]
         # p is password
-        p = row[8]
+        p = row[9] # modified this 
+        
+        # End the loop if end of spreashseet is reached
+        # Not sure what was going on, but skip_last stopped working properly
+        #This was a hasty fix, but it got everything working
+        if row[5] == '':
+            break    
+        
         # Find the active time for each user
-        start = datetime.strptime(row[3], "%m/%d/%Y")
+        start = datetime.strptime(row[5], "%m/%d/%Y")
         # End time is either today or when the user returned their device
         if row[4] == '':
             end = today 
         else: 
             end = datetime.strptime(row[4], "%m/%d/%Y")
+        
+        # This is the current subject's row as it originally is. This may or not be updated
+        subject_row = [row[0] , row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10] ]       
+
         # Run the download code over all active dates for the user
         print u
         for dt in rrule.rrule(rrule.DAILY, dtstart=start, until=end):
+            #These will be used for comparison at the very end
+            cur_loop = dt.strftime("%m/%d/%Y")
+            end_loop = end.strftime("%m/%d/%Y")
+            
             # Put data in the format needed by BasisRetriever
             dti = dt.strftime("%Y-%m-%d")
             # Call the code
@@ -66,6 +94,17 @@ with open(inv_dir, 'rb') as csvfile:
             filename = "%s/%s_basis_sleep.csv" % (sd, dti)
             file_rename = "%s/id_%s_basis_sleep_%s.csv" % (sd, uid, dti)
             os.rename(filename, file_rename)
+            
+            # If the file newly created file is non-empty, then the Basis Inventory 'last valid update'
+            # column will be updated with this date
+            updated = is_nonzero(file_rename)
+            if updated:
+               subject_row = [ row[0] , row[1], row[2], row[3], row[4], cur_date, row[6], row[7], row[8], row[9], row[10] ]
+               print "row updated"
+            #only append to the updated list at the end of the loop
+            if cur_loop==end_loop:
+               updated_list.append(subject_row)    
+               
         os.remove(os.path.join(dir, 'basis_retr.cookie'))
         shutil.rmtree(os.path.join(dir, '../data/raw/new/json'))
                   
